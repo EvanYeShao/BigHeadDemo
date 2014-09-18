@@ -8,8 +8,12 @@
 
 #import "BGDViewController.h"
 
-@interface BGDViewController ()
 
+@interface BGDViewController ()
+{
+  
+}
+@property (nonatomic, copy) NSArray *assets;
 @end
 
 @implementation BGDViewController
@@ -17,7 +21,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+ 
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+#pragma mark - Open Asset Picker
+- (IBAction)openImagePickerController:(id)sender
+{
+    [self performSegueWithIdentifier:@"modalToGroup" sender:nil];
 }
 
 - (void)didReceiveMemoryWarning

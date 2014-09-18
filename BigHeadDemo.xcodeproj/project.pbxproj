@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9243677C19CAAA580095D7E0 /* BGDGroupPickTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9243677B19CAAA580095D7E0 /* BGDGroupPickTableViewController.m */; };
+		9243677F19CAAF8F0095D7E0 /* AssetsDataIsInaccessibleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9243677E19CAAF8F0095D7E0 /* AssetsDataIsInaccessibleViewController.m */; };
+		9243678219CABB570095D7E0 /* BGDThumbPickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9243678119CABB570095D7E0 /* BGDThumbPickViewController.m */; };
+		9243678519CABF590095D7E0 /* Line.png in Resources */ = {isa = PBXBuildFile; fileRef = 9243678319CABF590095D7E0 /* Line.png */; };
+		9243678619CABF590095D7E0 /* Line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9243678419CABF590095D7E0 /* Line@2x.png */; };
+		92574ECF19CA8CF400E438F9 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92574ECE19CA8CF400E438F9 /* AssetsLibrary.framework */; };
+		92B374B619CA9B6D00D86447 /* c360_cloud_small_image_selectable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92B374B419CA9B6D00D86447 /* c360_cloud_small_image_selectable@2x.png */; };
+		92B374B719CA9B6D00D86447 /* c360_cloud_small_image_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92B374B519CA9B6D00D86447 /* c360_cloud_small_image_selected@2x.png */; };
+		92B374BB19CAA87F00D86447 /* BGDThumbCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B374BA19CAA87F00D86447 /* BGDThumbCell.m */; };
 		92F0598E19CA80ED004B3B1A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92F0598D19CA80ED004B3B1A /* Foundation.framework */; };
 		92F0599019CA80ED004B3B1A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92F0598F19CA80ED004B3B1A /* CoreGraphics.framework */; };
 		92F0599219CA80ED004B3B1A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92F0599119CA80ED004B3B1A /* UIKit.framework */; };
@@ -34,6 +43,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9243677A19CAAA580095D7E0 /* BGDGroupPickTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGDGroupPickTableViewController.h; sourceTree = "<group>"; };
+		9243677B19CAAA580095D7E0 /* BGDGroupPickTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGDGroupPickTableViewController.m; sourceTree = "<group>"; };
+		9243677D19CAAF8F0095D7E0 /* AssetsDataIsInaccessibleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsDataIsInaccessibleViewController.h; sourceTree = "<group>"; };
+		9243677E19CAAF8F0095D7E0 /* AssetsDataIsInaccessibleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsDataIsInaccessibleViewController.m; sourceTree = "<group>"; };
+		9243678019CABB570095D7E0 /* BGDThumbPickViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGDThumbPickViewController.h; sourceTree = "<group>"; };
+		9243678119CABB570095D7E0 /* BGDThumbPickViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGDThumbPickViewController.m; sourceTree = "<group>"; };
+		9243678319CABF590095D7E0 /* Line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Line.png; sourceTree = "<group>"; };
+		9243678419CABF590095D7E0 /* Line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Line@2x.png"; sourceTree = "<group>"; };
+		92574ECE19CA8CF400E438F9 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		92B374B419CA9B6D00D86447 /* c360_cloud_small_image_selectable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "c360_cloud_small_image_selectable@2x.png"; sourceTree = "<group>"; };
+		92B374B519CA9B6D00D86447 /* c360_cloud_small_image_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "c360_cloud_small_image_selected@2x.png"; sourceTree = "<group>"; };
+		92B374B919CAA87F00D86447 /* BGDThumbCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGDThumbCell.h; sourceTree = "<group>"; };
+		92B374BA19CAA87F00D86447 /* BGDThumbCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGDThumbCell.m; sourceTree = "<group>"; };
 		92F0598A19CA80ED004B3B1A /* BigHeadDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BigHeadDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92F0598D19CA80ED004B3B1A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		92F0598F19CA80ED004B3B1A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -60,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92574ECF19CA8CF400E438F9 /* AssetsLibrary.framework in Frameworks */,
 				92F0599019CA80ED004B3B1A /* CoreGraphics.framework in Frameworks */,
 				92F0599219CA80ED004B3B1A /* UIKit.framework in Frameworks */,
 				92F0598E19CA80ED004B3B1A /* Foundation.framework in Frameworks */,
@@ -79,9 +102,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		92574E9A19CA8CAE00E438F9 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		92B374B319CA9B6700D86447 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				92B374B419CA9B6D00D86447 /* c360_cloud_small_image_selectable@2x.png */,
+				92B374B519CA9B6D00D86447 /* c360_cloud_small_image_selected@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		92B374B819CAA86D00D86447 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				9243678319CABF590095D7E0 /* Line.png */,
+				9243678419CABF590095D7E0 /* Line@2x.png */,
+				92B374B919CAA87F00D86447 /* BGDThumbCell.h */,
+				92B374BA19CAA87F00D86447 /* BGDThumbCell.m */,
+				9243677A19CAAA580095D7E0 /* BGDGroupPickTableViewController.h */,
+				9243677B19CAAA580095D7E0 /* BGDGroupPickTableViewController.m */,
+				9243678019CABB570095D7E0 /* BGDThumbPickViewController.h */,
+				9243678119CABB570095D7E0 /* BGDThumbPickViewController.m */,
+				9243677D19CAAF8F0095D7E0 /* AssetsDataIsInaccessibleViewController.h */,
+				9243677E19CAAF8F0095D7E0 /* AssetsDataIsInaccessibleViewController.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		92F0598119CA80ED004B3B1A = {
 			isa = PBXGroup;
 			children = (
+				92B374B819CAA86D00D86447 /* Classes */,
+				92B374B319CA9B6700D86447 /* Resources */,
+				92574E9A19CA8CAE00E438F9 /* Vendors */,
 				92F0599319CA80ED004B3B1A /* BigHeadDemo */,
 				92F059B219CA80ED004B3B1A /* BigHeadDemoTests */,
 				92F0598C19CA80ED004B3B1A /* Frameworks */,
@@ -101,6 +160,7 @@
 		92F0598C19CA80ED004B3B1A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				92574ECE19CA8CF400E438F9 /* AssetsLibrary.framework */,
 				92F0598D19CA80ED004B3B1A /* Foundation.framework */,
 				92F0598F19CA80ED004B3B1A /* CoreGraphics.framework */,
 				92F0599119CA80ED004B3B1A /* UIKit.framework */,
@@ -230,6 +290,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				92F059A619CA80ED004B3B1A /* Images.xcassets in Resources */,
+				92B374B719CA9B6D00D86447 /* c360_cloud_small_image_selected@2x.png in Resources */,
+				92B374B619CA9B6D00D86447 /* c360_cloud_small_image_selectable@2x.png in Resources */,
+				9243678519CABF590095D7E0 /* Line.png in Resources */,
+				9243678619CABF590095D7E0 /* Line@2x.png in Resources */,
 				92F0599819CA80ED004B3B1A /* InfoPlist.strings in Resources */,
 				92F059A119CA80ED004B3B1A /* Main.storyboard in Resources */,
 			);
@@ -250,7 +314,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9243677C19CAAA580095D7E0 /* BGDGroupPickTableViewController.m in Sources */,
 				92F059A419CA80ED004B3B1A /* BGDViewController.m in Sources */,
+				9243678219CABB570095D7E0 /* BGDThumbPickViewController.m in Sources */,
+				92B374BB19CAA87F00D86447 /* BGDThumbCell.m in Sources */,
+				9243677F19CAAF8F0095D7E0 /* AssetsDataIsInaccessibleViewController.m in Sources */,
 				92F0599E19CA80ED004B3B1A /* BGDAppDelegate.m in Sources */,
 				92F0599A19CA80ED004B3B1A /* main.m in Sources */,
 			);
@@ -457,6 +525,7 @@
 				92F059BE19CA80ED004B3B1A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		92F059BF19CA80ED004B3B1A /* Build configuration list for PBXNativeTarget "BigHeadDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +534,7 @@
 				92F059C119CA80ED004B3B1A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
