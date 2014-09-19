@@ -20,6 +20,8 @@
     
     CIContext *_context;
     CGFloat imageScale;
+    CGFloat imageScaleX;
+    CGFloat imageScaleY;
 }
 @property (nonatomic, copy) NSArray *assets;
 @end
@@ -44,10 +46,10 @@
     
     UIPinchGestureRecognizer *pinGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)];
     pinGesture.delegate = self;
-    [_framButton addGestureRecognizer:pinGesture];
+ //   [_framButton addGestureRecognizer:pinGesture];
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGesture:)];
-    [_framButton addGestureRecognizer:longPress];
+  //  [_framButton addGestureRecognizer:longPress];
 
 }
 
@@ -116,10 +118,6 @@
     originalImage  = (UIImage *)noti.object;
     tempImage = originalImage;
     self.bigHeadImageView.image = originalImage;
-    CGRect scaledRect =  AVMakeRectWithAspectRatioInsideRect(originalImage.size,self.bigHeadImageView.bounds);
-    imageScale = originalImage.size.width/scaledRect.size.width;
-    NSLog(@"originalImage width is %f,height is %f",originalImage.size.width,originalImage.size.height);
-    NSLog(@"width is %f,height is %f",scaledRect.size.width,scaledRect.size.height);
 }
 
 #pragma mark -
@@ -138,7 +136,7 @@
         CGPoint convertPoint = [self.view convertPoint:_framButton.center toView:self.bigHeadImageView];
        
        self.bigHeadImageView.image = [self distortionFilterWithImage:tempImage
-                                                          WithVector:CGPointMake(_framButton.center.x, _framButton.center.y)
+                                                          WithVector:CGPointMake(convertPoint.x, convertPoint.y)
                                                           WithRadius:_framButton.bounds.size.width*imageScale
                                                           WithScale:(slider.value)];
     }
@@ -155,7 +153,7 @@
     CIImage *input = [CIImage imageWithCGImage:image.CGImage];
     CIFilter *bumpDistortion = [CIFilter filterWithName:@"CIBumpDistortion"];
     [bumpDistortion setValue:input forKey:kCIInputImageKey];
-    [bumpDistortion setValue:[CIVector vectorWithX:originalImage.size.width/2+50 Y:originalImage.size.height/2] forKey:@"inputCenter"];
+    [bumpDistortion setValue:[CIVector vectorWithX:vector.x Y:vector.y] forKey:@"inputCenter"];
     [bumpDistortion setValue:[NSNumber numberWithFloat:radius] forKey:@"inputRadius"];
     [bumpDistortion setValue:[NSNumber numberWithFloat:scale] forKey:@"inputScale"];
     
@@ -165,7 +163,7 @@
 - (UIImage *)imageWithCoreImage:(CIImage *)image
 {
     // 生成图片需要调整方向，不然加完滤镜图像是landscape方向。
-    CGImageRef cgimg = [_context createCGImage:image fromRect:[image extent]];
+    CGImageRef cgimg = [_context createCGImage:image fromRect:CGRectMake(0, 0, originalImage.size.width, originalImage.size.height)];
     UIImage *uiimage = [UIImage imageWithCGImage:cgimg scale:1.0 orientation:originalImage.imageOrientation];
     CGImageRelease(cgimg);
     

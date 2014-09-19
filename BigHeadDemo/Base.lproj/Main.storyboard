@@ -3,7 +3,6 @@
     <dependencies>
         <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--制作大头贴-->
@@ -18,6 +17,10 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="srd-bG-z6r">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="427"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vwz-s7-TUa">
                                 <rect key="frame" x="16" y="451" width="35" height="35"/>
                                 <state key="normal" title="Button" image="plus.png">
@@ -36,20 +39,8 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="srd-bG-z6r">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="426"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="426" id="9cu-tM-WBR"/>
-                                    <constraint firstAttribute="width" constant="320" id="spD-Gy-8oo"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.75294117647058822" green="0.75686274509803919" blue="0.76470588235294112" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="srd-bG-z6r" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="MhA-40-cYr"/>
-                            <constraint firstItem="srd-bG-z6r" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="bF4-q4-dRi"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="制作大头贴" id="LAp-2l-Wbe">
                         <barButtonItem key="leftBarButtonItem" title="相册" id="Yyi-Im-MJH">
