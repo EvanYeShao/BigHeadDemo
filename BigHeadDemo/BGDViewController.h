@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface BGDViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIImageView *bigHeadImageView;
+@property (weak, nonatomic) IBOutlet UISlider *filterSlide;
+@property (strong, nonatomic) IBOutlet UIView *addFrameButton;
+@property (weak, nonatomic) IBOutlet UIButton *framButton;
 
 @end

@@ -95,6 +95,17 @@
     return cell;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+     ALAsset *asset = self.assets[indexPath.row];
+    UIImage *image = [UIImage imageWithCGImage:asset.defaultRepresentation.fullScreenImage];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"kChoosedImage" object:image];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
+- (void)dealloc
+{
+    
+}
 
 @end
