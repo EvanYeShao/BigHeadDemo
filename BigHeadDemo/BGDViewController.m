@@ -9,6 +9,8 @@
 #import "BGDViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import <CoreImage/CoreImage.h>
+#import "UIImageView+GeometryConversion.h"
+#import "UIView+Positioning.h"
 
 @interface BGDViewController ()<UIGestureRecognizerDelegate>
 {
@@ -46,10 +48,10 @@
     
     UIPinchGestureRecognizer *pinGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)];
     pinGesture.delegate = self;
- //   [_framButton addGestureRecognizer:pinGesture];
+    [_framButton addGestureRecognizer:pinGesture];
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGesture:)];
-  //  [_framButton addGestureRecognizer:longPress];
+    [_framButton addGestureRecognizer:longPress];
 
 }
 
@@ -118,6 +120,7 @@
     originalImage  = (UIImage *)noti.object;
     tempImage = originalImage;
     self.bigHeadImageView.image = originalImage;
+    NSLog(@"image orientation is %d",originalImage.imageOrientation);
 }
 
 #pragma mark -
@@ -128,15 +131,18 @@
     NSLog(@"value changed");
     UISlider *slider = (UISlider *)sender;
     if (!originalImage) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"请先加载tup" message:nil delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"请先加载图片" message:nil delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
         [alert show];
         return;
     }else
     {
         CGPoint convertPoint = [self.view convertPoint:_framButton.center toView:self.bigHeadImageView];
+        convertPoint = CGPointMake(convertPoint.x, self.bigHeadImageView.height-convertPoint.y);
+        
+        CGPoint imagePoint = [self.bigHeadImageView convertPointFromView:convertPoint];
        
        self.bigHeadImageView.image = [self distortionFilterWithImage:tempImage
-                                                          WithVector:CGPointMake(convertPoint.x, convertPoint.y)
+                                                          WithVector:imagePoint
                                                           WithRadius:_framButton.bounds.size.width*imageScale
                                                           WithScale:(slider.value)];
     }
@@ -154,7 +160,7 @@
     CIFilter *bumpDistortion = [CIFilter filterWithName:@"CIBumpDistortion"];
     [bumpDistortion setValue:input forKey:kCIInputImageKey];
     [bumpDistortion setValue:[CIVector vectorWithX:vector.x Y:vector.y] forKey:@"inputCenter"];
-    [bumpDistortion setValue:[NSNumber numberWithFloat:radius] forKey:@"inputRadius"];
+    [bumpDistortion setValue:[NSNumber numberWithFloat:200] forKey:@"inputRadius"];
     [bumpDistortion setValue:[NSNumber numberWithFloat:scale] forKey:@"inputScale"];
     
     return [self imageWithCoreImage:[bumpDistortion outputImage]];

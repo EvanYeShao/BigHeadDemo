@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40B7316D19CE55B3000E6ED9 /* BGDGroupThumbCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B7316919CE55B3000E6ED9 /* BGDGroupThumbCell.m */; };
+		40B7316E19CE55B3000E6ED9 /* BGDGroupThumbCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40B7316A19CE55B3000E6ED9 /* BGDGroupThumbCell.xib */; };
+		40B7316F19CE55B3000E6ED9 /* BGDThumbCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B7316C19CE55B3000E6ED9 /* BGDThumbCell.m */; };
+		40B7317719CE569C000E6ED9 /* UIImageView+GeometryConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B7317619CE569C000E6ED9 /* UIImageView+GeometryConversion.m */; };
+		40B7317A19CE5EE7000E6ED9 /* UIView+Positioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B7317919CE5EE7000E6ED9 /* UIView+Positioning.m */; };
 		922A2ECA19CBCE720084A82B /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 922A2EC819CBCE720084A82B /* plus.png */; };
 		922A2ECB19CBCE720084A82B /* plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 922A2EC919CBCE720084A82B /* plus@2x.png */; };
 		922A2ECD19CBD3F10084A82B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922A2ECC19CBD3F10084A82B /* AVFoundation.framework */; };
 		922A2ECF19CBD3F60084A82B /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922A2ECE19CBD3F60084A82B /* CoreImage.framework */; };
-		923ECD5B19CBB77E00E97FB9 /* BGDGroupThumbCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 923ECD5A19CBB77E00E97FB9 /* BGDGroupThumbCell.m */; };
-		923ECD5D19CBB82400E97FB9 /* BGDGroupThumbCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 923ECD5C19CBB82400E97FB9 /* BGDGroupThumbCell.xib */; };
 		923ECD6019CBB93000E97FB9 /* BGDGroupPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 923ECD5F19CBB93000E97FB9 /* BGDGroupPickerViewController.m */; };
 		9243677F19CAAF8F0095D7E0 /* AssetsDataIsInaccessibleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9243677E19CAAF8F0095D7E0 /* AssetsDataIsInaccessibleViewController.m */; };
 		9243678219CABB570095D7E0 /* BGDThumbPickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9243678119CABB570095D7E0 /* BGDThumbPickViewController.m */; };
@@ -21,7 +24,6 @@
 		92574ECF19CA8CF400E438F9 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92574ECE19CA8CF400E438F9 /* AssetsLibrary.framework */; };
 		92B374B619CA9B6D00D86447 /* c360_cloud_small_image_selectable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92B374B419CA9B6D00D86447 /* c360_cloud_small_image_selectable@2x.png */; };
 		92B374B719CA9B6D00D86447 /* c360_cloud_small_image_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92B374B519CA9B6D00D86447 /* c360_cloud_small_image_selected@2x.png */; };
-		92B374BB19CAA87F00D86447 /* BGDThumbCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B374BA19CAA87F00D86447 /* BGDThumbCell.m */; };
 		92F0598E19CA80ED004B3B1A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92F0598D19CA80ED004B3B1A /* Foundation.framework */; };
 		92F0599019CA80ED004B3B1A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92F0598F19CA80ED004B3B1A /* CoreGraphics.framework */; };
 		92F0599219CA80ED004B3B1A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92F0599119CA80ED004B3B1A /* UIKit.framework */; };
@@ -49,13 +51,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		40B7316819CE55B3000E6ED9 /* BGDGroupThumbCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BGDGroupThumbCell.h; path = Classes/BGDGroupThumbCell.h; sourceTree = SOURCE_ROOT; };
+		40B7316919CE55B3000E6ED9 /* BGDGroupThumbCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BGDGroupThumbCell.m; path = Classes/BGDGroupThumbCell.m; sourceTree = SOURCE_ROOT; };
+		40B7316A19CE55B3000E6ED9 /* BGDGroupThumbCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BGDGroupThumbCell.xib; path = Classes/BGDGroupThumbCell.xib; sourceTree = SOURCE_ROOT; };
+		40B7316B19CE55B3000E6ED9 /* BGDThumbCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BGDThumbCell.h; path = Classes/BGDThumbCell.h; sourceTree = SOURCE_ROOT; };
+		40B7316C19CE55B3000E6ED9 /* BGDThumbCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BGDThumbCell.m; path = Classes/BGDThumbCell.m; sourceTree = SOURCE_ROOT; };
+		40B7317519CE569C000E6ED9 /* UIImageView+GeometryConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+GeometryConversion.h"; sourceTree = "<group>"; };
+		40B7317619CE569C000E6ED9 /* UIImageView+GeometryConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+GeometryConversion.m"; sourceTree = "<group>"; };
+		40B7317819CE5EE7000E6ED9 /* UIView+Positioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Positioning.h"; sourceTree = "<group>"; };
+		40B7317919CE5EE7000E6ED9 /* UIView+Positioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Positioning.m"; sourceTree = "<group>"; };
 		922A2EC819CBCE720084A82B /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
 		922A2EC919CBCE720084A82B /* plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus@2x.png"; sourceTree = "<group>"; };
 		922A2ECC19CBD3F10084A82B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		922A2ECE19CBD3F60084A82B /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
-		923ECD5919CBB77E00E97FB9 /* BGDGroupThumbCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BGDGroupThumbCell.h; path = ../Classes/BGDGroupThumbCell.h; sourceTree = "<group>"; };
-		923ECD5A19CBB77E00E97FB9 /* BGDGroupThumbCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BGDGroupThumbCell.m; path = ../Classes/BGDGroupThumbCell.m; sourceTree = "<group>"; };
-		923ECD5C19CBB82400E97FB9 /* BGDGroupThumbCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BGDGroupThumbCell.xib; path = ../Classes/BGDGroupThumbCell.xib; sourceTree = "<group>"; };
 		923ECD5E19CBB93000E97FB9 /* BGDGroupPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGDGroupPickerViewController.h; sourceTree = "<group>"; };
 		923ECD5F19CBB93000E97FB9 /* BGDGroupPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGDGroupPickerViewController.m; sourceTree = "<group>"; };
 		9243677D19CAAF8F0095D7E0 /* AssetsDataIsInaccessibleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsDataIsInaccessibleViewController.h; sourceTree = "<group>"; };
@@ -67,8 +75,6 @@
 		92574ECE19CA8CF400E438F9 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		92B374B419CA9B6D00D86447 /* c360_cloud_small_image_selectable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "c360_cloud_small_image_selectable@2x.png"; sourceTree = "<group>"; };
 		92B374B519CA9B6D00D86447 /* c360_cloud_small_image_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "c360_cloud_small_image_selected@2x.png"; sourceTree = "<group>"; };
-		92B374B919CAA87F00D86447 /* BGDThumbCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BGDThumbCell.h; path = ../Classes/BGDThumbCell.h; sourceTree = "<group>"; };
-		92B374BA19CAA87F00D86447 /* BGDThumbCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BGDThumbCell.m; path = ../Classes/BGDThumbCell.m; sourceTree = "<group>"; };
 		92F0598A19CA80ED004B3B1A /* BigHeadDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BigHeadDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92F0598D19CA80ED004B3B1A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		92F0598F19CA80ED004B3B1A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -117,14 +123,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		40B7317419CE5690000E6ED9 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				40B7317819CE5EE7000E6ED9 /* UIView+Positioning.h */,
+				40B7317919CE5EE7000E6ED9 /* UIView+Positioning.m */,
+				40B7317519CE569C000E6ED9 /* UIImageView+GeometryConversion.h */,
+				40B7317619CE569C000E6ED9 /* UIImageView+GeometryConversion.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		922A2ED019CBD4310084A82B /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
-				92B374B919CAA87F00D86447 /* BGDThumbCell.h */,
-				92B374BA19CAA87F00D86447 /* BGDThumbCell.m */,
-				923ECD5919CBB77E00E97FB9 /* BGDGroupThumbCell.h */,
-				923ECD5A19CBB77E00E97FB9 /* BGDGroupThumbCell.m */,
-				923ECD5C19CBB82400E97FB9 /* BGDGroupThumbCell.xib */,
+				40B7316819CE55B3000E6ED9 /* BGDGroupThumbCell.h */,
+				40B7316919CE55B3000E6ED9 /* BGDGroupThumbCell.m */,
+				40B7316A19CE55B3000E6ED9 /* BGDGroupThumbCell.xib */,
+				40B7316B19CE55B3000E6ED9 /* BGDThumbCell.h */,
+				40B7316C19CE55B3000E6ED9 /* BGDThumbCell.m */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -167,6 +184,7 @@
 		92F0598119CA80ED004B3B1A = {
 			isa = PBXGroup;
 			children = (
+				40B7317419CE5690000E6ED9 /* Category */,
 				922A2ED019CBD4310084A82B /* CustomView */,
 				92B374B819CAA86D00D86447 /* Classes */,
 				92B374B319CA9B6700D86447 /* Resources */,
@@ -319,7 +337,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				923ECD5D19CBB82400E97FB9 /* BGDGroupThumbCell.xib in Resources */,
+				40B7316E19CE55B3000E6ED9 /* BGDGroupThumbCell.xib in Resources */,
 				92F059A619CA80ED004B3B1A /* Images.xcassets in Resources */,
 				92B374B719CA9B6D00D86447 /* c360_cloud_small_image_selected@2x.png in Resources */,
 				92B374B619CA9B6D00D86447 /* c360_cloud_small_image_selectable@2x.png in Resources */,
@@ -347,13 +365,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				923ECD5B19CBB77E00E97FB9 /* BGDGroupThumbCell.m in Sources */,
 				92F059A419CA80ED004B3B1A /* BGDViewController.m in Sources */,
 				9243678219CABB570095D7E0 /* BGDThumbPickViewController.m in Sources */,
-				92B374BB19CAA87F00D86447 /* BGDThumbCell.m in Sources */,
 				9243677F19CAAF8F0095D7E0 /* AssetsDataIsInaccessibleViewController.m in Sources */,
 				923ECD6019CBB93000E97FB9 /* BGDGroupPickerViewController.m in Sources */,
+				40B7317A19CE5EE7000E6ED9 /* UIView+Positioning.m in Sources */,
 				92F0599E19CA80ED004B3B1A /* BGDAppDelegate.m in Sources */,
+				40B7316D19CE55B3000E6ED9 /* BGDGroupThumbCell.m in Sources */,
+				40B7317719CE569C000E6ED9 /* UIImageView+GeometryConversion.m in Sources */,
+				40B7316F19CE55B3000E6ED9 /* BGDThumbCell.m in Sources */,
 				92F0599A19CA80ED004B3B1A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,6 +499,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BigHeadDemo/BigHeadDemo-Prefix.pch";
 				INFOPLIST_FILE = "BigHeadDemo/BigHeadDemo-Info.plist";
@@ -492,6 +513,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BigHeadDemo/BigHeadDemo-Prefix.pch";
 				INFOPLIST_FILE = "BigHeadDemo/BigHeadDemo-Info.plist";
