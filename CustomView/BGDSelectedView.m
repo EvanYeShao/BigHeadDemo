@@ -9,6 +9,8 @@
 #import "BGDSelectedView.h"
 #import "UIView+Positioning.h"
 
+#define RADIANS_TO_DEGREES(radians) ((radians) * (180.0 / M_PI))
+
 @implementation BGDSelectedView
 
 - (instancetype)initWithFrame:(CGRect)frame isCircle:(BOOL)circle
@@ -16,16 +18,16 @@
     self = [super initWithFrame:frame];
     if (self) {
         if (circle) {
-          self.layer.cornerRadius = CGRectGetHeight(self.frame)/2;
+         // self.layer.cornerRadius = CGRectGetHeight(self.frame)/2;
 
         }
         currentWidth = self.width;
         
         beginGestureScale = effectiveScale = 1.0;
         
-        self.layer.masksToBounds = YES;
-        self.layer.borderColor = [UIColor whiteColor].CGColor;
-        self.layer.borderWidth = 2;
+//        self.layer.masksToBounds = YES;
+//        self.layer.borderColor = [UIColor whiteColor].CGColor;
+//        self.layer.borderWidth = 2;
         
         UIPinchGestureRecognizer *pinGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)];
         pinGesture.delegate = self;
@@ -34,8 +36,36 @@
         UILongPressGestureRecognizer *panGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
         [self addGestureRecognizer:panGesture];
         
+        // Background ImageView
+        
+        bgImageView = [[UIImageView alloc] initWithFrame:self.bounds];
+        bgImageView.image = [UIImage imageNamed:@"circle"];
+        [self addSubview:bgImageView];
+        
+        // 拉升图片坐标
+        CGFloat scaleX = self.width/2+self.width/2*sin(RADIANS_TO_DEGREES(45))-10;
+        CGFloat scaleY = self.width+self.width/2*cos(RADIANS_TO_DEGREES(45));
+        scaleImageView = [[UIImageView alloc] initWithFrame:CGRectMake(scaleX, scaleY, 26, 26)];
+        scaleImageView.image = [UIImage imageNamed:@"sticker_scale"];
+        [self addSubview:scaleImageView];
+        [self bringSubviewToFront:scaleImageView];
+        
+        // 移除图片坐标
+        CGFloat deleteX = self.width/2-self.width/2*sin(RADIANS_TO_DEGREES(45));
+        CGFloat deleteY = self.width-self.width/2*cos(RADIANS_TO_DEGREES(45));
+        deleteImageView = [[UIImageView alloc] initWithFrame:CGRectMake(deleteX, deleteY, 26, 26)];
+        deleteImageView.image = [UIImage imageNamed:@"sticker_delete"];
+        [self addSubview:deleteImageView];
+        [self bringSubviewToFront:deleteImageView];
+        
     }
     return self;
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
 }
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
@@ -71,6 +101,7 @@
     
     [UIView animateWithDuration:0.025 animations:^{
         self.transform = CGAffineTransformMakeScale(effectiveScale, effectiveScale);
+        scaleImageView.transform = CGAffineTransformIdentity;
     }];
     
     if ([self.delegate respondsToSelector:@selector(pinGestureDidScale:ForView:)]&&self.delegate) {

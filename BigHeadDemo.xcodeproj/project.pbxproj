@@ -25,6 +25,10 @@
 		9243678619CABF590095D7E0 /* Line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9243678419CABF590095D7E0 /* Line@2x.png */; };
 		92574ECF19CA8CF400E438F9 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92574ECE19CA8CF400E438F9 /* AssetsLibrary.framework */; };
 		9263003C19CFEC910085120E /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 9263003B19CFEC910085120E /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
+		9281105119D01A29007B4019 /* sticker_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9281104F19D01A29007B4019 /* sticker_delete@2x.png */; };
+		9281105219D01A29007B4019 /* sticker_scale@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9281105019D01A29007B4019 /* sticker_scale@2x.png */; };
+		9281105519D01EFE007B4019 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 9281105319D01EFE007B4019 /* circle.png */; };
+		9281105619D01EFE007B4019 /* circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9281105419D01EFE007B4019 /* circle@2x.png */; };
 		92B374B619CA9B6D00D86447 /* c360_cloud_small_image_selectable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92B374B419CA9B6D00D86447 /* c360_cloud_small_image_selectable@2x.png */; };
 		92B374B719CA9B6D00D86447 /* c360_cloud_small_image_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92B374B519CA9B6D00D86447 /* c360_cloud_small_image_selected@2x.png */; };
 		92C21A8319CFE8F2001914E3 /* BGDPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C21A8219CFE8F2001914E3 /* BGDPreviewController.m */; };
@@ -83,6 +87,10 @@
 		92574ECE19CA8CF400E438F9 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		9263003A19CFEC910085120E /* ALAssetsLibrary+CustomPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALAssetsLibrary+CustomPhotoAlbum.h"; sourceTree = "<group>"; };
 		9263003B19CFEC910085120E /* ALAssetsLibrary+CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALAssetsLibrary+CustomPhotoAlbum.m"; sourceTree = "<group>"; };
+		9281104F19D01A29007B4019 /* sticker_delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sticker_delete@2x.png"; sourceTree = "<group>"; };
+		9281105019D01A29007B4019 /* sticker_scale@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sticker_scale@2x.png"; sourceTree = "<group>"; };
+		9281105319D01EFE007B4019 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
+		9281105419D01EFE007B4019 /* circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle@2x.png"; sourceTree = "<group>"; };
 		92B374B419CA9B6D00D86447 /* c360_cloud_small_image_selectable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "c360_cloud_small_image_selectable@2x.png"; sourceTree = "<group>"; };
 		92B374B519CA9B6D00D86447 /* c360_cloud_small_image_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "c360_cloud_small_image_selected@2x.png"; sourceTree = "<group>"; };
 		92C21A8119CFE8F2001914E3 /* BGDPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGDPreviewController.h; sourceTree = "<group>"; };
@@ -174,8 +182,12 @@
 		92B374B319CA9B6700D86447 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9281105319D01EFE007B4019 /* circle.png */,
+				9281105419D01EFE007B4019 /* circle@2x.png */,
 				922A2EC819CBCE720084A82B /* plus.png */,
 				922A2EC919CBCE720084A82B /* plus@2x.png */,
+				9281104F19D01A29007B4019 /* sticker_delete@2x.png */,
+				9281105019D01A29007B4019 /* sticker_scale@2x.png */,
 				9243678319CABF590095D7E0 /* Line.png */,
 				9243678419CABF590095D7E0 /* Line@2x.png */,
 				92B374B419CA9B6D00D86447 /* c360_cloud_small_image_selectable@2x.png */,
@@ -357,14 +369,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9281105119D01A29007B4019 /* sticker_delete@2x.png in Resources */,
 				40B7316E19CE55B3000E6ED9 /* BGDGroupThumbCell.xib in Resources */,
 				92F059A619CA80ED004B3B1A /* Images.xcassets in Resources */,
 				92B374B719CA9B6D00D86447 /* c360_cloud_small_image_selected@2x.png in Resources */,
 				92B374B619CA9B6D00D86447 /* c360_cloud_small_image_selectable@2x.png in Resources */,
+				9281105219D01A29007B4019 /* sticker_scale@2x.png in Resources */,
+				9281105619D01EFE007B4019 /* circle@2x.png in Resources */,
 				9243678519CABF590095D7E0 /* Line.png in Resources */,
 				9243678619CABF590095D7E0 /* Line@2x.png in Resources */,
 				92F0599819CA80ED004B3B1A /* InfoPlist.strings in Resources */,
 				922A2ECA19CBCE720084A82B /* plus.png in Resources */,
+				9281105519D01EFE007B4019 /* circle.png in Resources */,
 				92F059A119CA80ED004B3B1A /* Main.storyboard in Resources */,
 				922A2ECB19CBCE720084A82B /* plus@2x.png in Resources */,
 			);

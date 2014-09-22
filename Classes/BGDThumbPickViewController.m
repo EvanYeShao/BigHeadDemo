@@ -77,9 +77,6 @@
     return self.assets.count;
 }
 
-#define kImageViewTag 1
-#define kMaskImageViewTag 2
-// the image view inside the collection view cell prototype is tagged with "1"
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     

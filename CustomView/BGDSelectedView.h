@@ -23,6 +23,10 @@
     CGFloat effectiveScale;
     
     CGFloat currentWidth;
+    
+    UIImageView *bgImageView;
+    UIImageView *deleteImageView;
+    UIImageView *scaleImageView;
 }
 
 @property (nonatomic, weak) id<SelectedViewDelegate> delegate;
