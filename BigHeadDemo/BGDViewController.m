@@ -141,8 +141,8 @@ CGFloat const kBeginWidth = 100.0f;
        
        self.bigHeadImageView.image = [self distortionFilterWithImage:tempImage
                                                           WithVector:imagePoint
-                                                          WithRadius:circleWidth/2/imageScale
-                                                          WithScale:(slider.value)];
+                                                          WithRadius:circleWidth*1.5/imageScale
+                                                          WithScale:(slider.value)*0.7];
     }
 }
 
@@ -192,6 +192,22 @@ CGFloat const kBeginWidth = 100.0f;
     [bumpDistortion setValue:[CIVector vectorWithX:vector.x Y:vector.y] forKey:@"inputCenter"];
     [bumpDistortion setValue:[NSNumber numberWithFloat:radius] forKey:@"inputRadius"];
     [bumpDistortion setValue:[NSNumber numberWithFloat:scale] forKey:@"inputScale"];
+    
+//    CIImage *input = [CIImage imageWithCGImage:image.CGImage];
+//    CIFilter *bumpDistortion = [CIFilter filterWithName:@"CIBumpDistortionLinear"];
+//    [bumpDistortion setValue:input forKey:kCIInputImageKey];
+//    [bumpDistortion setValue:[CIVector vectorWithX:vector.x Y:vector.y] forKey:@"inputCenter"];
+//    [bumpDistortion setValue:[NSNumber numberWithFloat:radius] forKey:@"inputRadius"];
+//    [bumpDistortion setValue:[NSNumber numberWithFloat:scale] forKey:@"inputScale"];
+//    [bumpDistortion setValue:[NSNumber numberWithInt:0] forKey:@"inputAngle"];
+//    
+//    CIFilter *bumpDistortion2 = [CIFilter filterWithName:@"CIBumpDistortionLinear"];
+//    [bumpDistortion setValue:bumpDistortion.outputImage forKey:kCIInputImageKey];
+//    [bumpDistortion setValue:[CIVector vectorWithX:vector.x Y:vector.y] forKey:@"inputCenter"];
+//    [bumpDistortion setValue:[NSNumber numberWithFloat:radius] forKey:@"inputRadius"];
+//    [bumpDistortion setValue:[NSNumber numberWithFloat:scale] forKey:@"inputScale"];
+//    [bumpDistortion setValue:[NSNumber numberWithInt:90*M_PI/180] forKey:@"inputAngle"];
+    
     
     return [self imageWithCoreImage:[bumpDistortion outputImage] withSize:originalImage.size];
 }

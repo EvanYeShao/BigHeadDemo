@@ -31,8 +31,9 @@
         pinGesture.delegate = self;
         [self addGestureRecognizer:pinGesture];
         
-        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGesture:)];
-        [self addGestureRecognizer:longPress];
+        UILongPressGestureRecognizer *panGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
+        [self addGestureRecognizer:panGesture];
+        
     }
     return self;
 }
@@ -41,6 +42,7 @@
 {
     //记录上一次拉伸的数值
     if ( [gestureRecognizer isKindOfClass:[UIPinchGestureRecognizer class]] ) {
+    
         beginGestureScale = effectiveScale;
     }
     return YES;
@@ -49,6 +51,8 @@
 
 - (void)handlePinchGesture:(UIPinchGestureRecognizer *)gestureRecognizer
 {
+    
+    
     effectiveScale = beginGestureScale * gestureRecognizer.scale;
     
     currentWidth = self.width *effectiveScale;
@@ -76,7 +80,7 @@
     
 }
 
-- (void)handleLongPressGesture:(UILongPressGestureRecognizer *)gesture
+- (void)handlePanGesture:(UILongPressGestureRecognizer *)gesture
 {
 
     switch (gesture.state) {

@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface BGDThumbCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *assetImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *maskImageView;
 
 @end

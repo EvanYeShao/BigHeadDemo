@@ -7,9 +7,12 @@
 //
 
 #import "BGDThumbPickViewController.h"
+#import "BGDThumbCell.h"
 
 @interface BGDThumbPickViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
-
+{
+    UIImage *selectedImage;
+}
 @end
 
 @implementation BGDThumbPickViewController
@@ -75,13 +78,14 @@
 }
 
 #define kImageViewTag 1
+#define kMaskImageViewTag 2
 // the image view inside the collection view cell prototype is tagged with "1"
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *CellIdentifier = @"photoCell";
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+    BGDThumbCell *cell = (BGDThumbCell *)[collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // load the asset for this cell
     ALAsset *asset = self.assets[indexPath.row];
@@ -89,18 +93,43 @@
     UIImage *thumbnail = [UIImage imageWithCGImage:thumbnailImageRef];
     
     // apply the image to the cell
-    UIImageView *imageView = (UIImageView *)[cell viewWithTag:kImageViewTag];
-    imageView.image = thumbnail;
+    cell.assetImageView.image = thumbnail;
     
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-     ALAsset *asset = self.assets[indexPath.row];
-    UIImage *image = [UIImage imageWithCGImage:asset.defaultRepresentation.fullScreenImage];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"kChoosedImage" object:image];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    ALAsset *asset = self.assets[indexPath.row];
+    selectedImage = [UIImage imageWithCGImage:asset.defaultRepresentation.fullResolutionImage];
+    
+    BGDThumbCell *cell = (BGDThumbCell *)[collectionView cellForItemAtIndexPath:indexPath];
+   
+    cell.maskImageView.image = [UIImage imageNamed:@"c360_cloud_small_image_selected"];
+   
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    selectedImage = nil;
+    
+    BGDThumbCell *cell = (BGDThumbCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    
+     cell.maskImageView.image = nil;
+}
+
+- (IBAction)btnChoose:(id)sender
+{
+    if (selectedImage) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"kChoosedImage" object:selectedImage];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"请选择一张图片" message:@"" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    
 }
 
 - (void)dealloc
