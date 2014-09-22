@@ -1,14 +1,10 @@
 //
-//  UIImageView+GeometryConversion.m
+//  BGDGroupPickerViewController.m
+//  BigHeadDemo
 //
-//  Created by Dominique d'Argent on 18.04.12.
-//  Copyright (c) 2012. All rights reserved.
+//  Created by zangqilong on 14-9-19.
+//  Copyright (c) 2014年 zangqilong. All rights reserved.
 //
-//  Thomas Sarlandie - 2012:
-//  - Added convertPointFromView:viewPoint
-//  - Added convertRectFromView:viewPoint
-//
-//  Contribution released in the public domain.
 
 #import "UIImageView+GeometryConversion.h"
 
@@ -125,6 +121,54 @@
     }
     
     return viewPoint;
+}
+
+// 获取压缩率
+- (CGFloat)getScaleRatioFromImage {
+   
+    
+    CGSize imageSize = self.image.size;
+    CGSize viewSize  = self.bounds.size;
+    
+    CGFloat ratioX = viewSize.width / imageSize.width;
+    CGFloat ratioY = viewSize.height / imageSize.height;
+    
+    UIViewContentMode contentMode = self.contentMode;
+    
+    CGFloat scale;
+    
+    if (contentMode == UIViewContentModeScaleAspectFit) {
+        scale = MIN(ratioX, ratioY);
+    }
+    else if (contentMode == UIViewContentModeScaleAspectFill) {
+        scale = MAX(ratioX, ratioY);
+    }
+    
+    return scale;
+}
+
+-(CGRect) cropRectForFrame:(CGRect)frame
+{
+    NSAssert(self.contentMode == UIViewContentModeScaleAspectFit, @"content mode must be aspect fit");
+    
+    CGFloat widthScale = self.bounds.size.width / self.image.size.width;
+    CGFloat heightScale = self.bounds.size.height / self.image.size.height;
+    
+    float x, y, w, h, offset;
+    if (widthScale<heightScale) {
+        offset = (self.bounds.size.height - (self.image.size.height*widthScale))/2;
+        x = frame.origin.x / widthScale;
+        y = (frame.origin.y-offset) / widthScale;
+        w = frame.size.width / widthScale;
+        h = frame.size.height / widthScale;
+    } else {
+        offset = (self.bounds.size.width - (self.image.size.width*heightScale))/2;
+        x = (frame.origin.x-offset) / heightScale;
+        y = frame.origin.y / heightScale;
+        w = frame.size.width / heightScale;
+        h = frame.size.height / heightScale;
+    }
+    return CGRectMake(x, y, w, h);
 }
 
 - (CGRect)convertRectFromImage:(CGRect)imageRect {

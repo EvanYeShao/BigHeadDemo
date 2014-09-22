@@ -1,14 +1,10 @@
 //
-//  UIImageView+GeometryConversion.h
+//  BGDGroupPickerViewController.m
+//  BigHeadDemo
 //
-//  Created by Dominique d'Argent on 18.04.12.
-//  Copyright (c) 2012. All rights reserved.
+//  Created by zangqilong on 14-9-19.
+//  Copyright (c) 2014年 zangqilong. All rights reserved.
 //
-//  Thomas Sarlandie - 2012:
-//  - Added convertPointFromView:viewPoint
-//  - Added convertRectFromView:viewPoint
-//
-//  Contribution released in the public domain.
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
@@ -22,4 +18,7 @@
 - (CGPoint)convertPointFromView:(CGPoint)viewPoint;
 - (CGRect)convertRectFromView:(CGRect)viewRect;
 
+- (CGFloat)getScaleRatioFromImage;
+
+-(CGRect) cropRectForFrame:(CGRect)frame;
 @end

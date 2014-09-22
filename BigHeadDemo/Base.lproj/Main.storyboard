@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8DW-5i-ROO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8DW-5i-ROO">
     <dependencies>
         <deployment defaultVersion="1808" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
         <!--制作大头贴-->
@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="srd-bG-z6r">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="srd-bG-z6r">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="427"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
@@ -26,18 +26,24 @@
                                 <state key="normal" title="Button" image="plus.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="handlePlusAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kdR-Du-d1g"/>
+                                </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fKO-qQ-oOC">
-                                <rect key="frame" x="68" y="454" width="238" height="31"/>
+                                <rect key="frame" x="68" y="454" width="181" height="31"/>
                                 <connections>
                                     <action selector="slideValueChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="SoH-md-1HH"/>
                                 </connections>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mEG-bf-BC0">
-                                <rect key="frame" x="110" y="93" width="100" height="100"/>
-                                <state key="normal">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2DF-bc-LiU">
+                                <rect key="frame" x="270" y="448" width="38" height="43"/>
+                                <state key="normal" title="预览">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pushToPreview:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Wfx-AR-iue"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.75294117647058822" green="0.75686274509803919" blue="0.76470588235294112" alpha="1" colorSpace="calibratedRGB"/>
@@ -48,18 +54,60 @@
                                 <action selector="openImagePickerController:" destination="vXZ-lx-hvc" id="IU8-95-gum"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="滤镜" id="27Q-Ls-o7j">
+                            <connections>
+                                <action selector="handlebarButtonAction:" destination="vXZ-lx-hvc" id="Nhi-Gn-vrS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addFrameButton" destination="kh9-bI-dsS" id="VvK-dm-ogx"/>
                         <outlet property="bigHeadImageView" destination="srd-bG-z6r" id="pia-r4-3yt"/>
                         <outlet property="filterSlide" destination="fKO-qQ-oOC" id="c3S-Ct-gFh"/>
-                        <outlet property="framButton" destination="mEG-bf-BC0" id="cVO-Lv-vDb"/>
                         <segue destination="LVR-C7-gpt" kind="modal" identifier="modalToGroup" id="FgX-Hx-QKv"/>
+                        <segue destination="lti-c3-d9m" kind="push" identifier="pushToPreview" id="vS6-2P-RMu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="450" y="147"/>
+        </scene>
+        <!--预览-->
+        <scene sceneID="9Z8-RQ-jeH">
+            <objects>
+                <viewController id="lti-c3-d9m" customClass="BGDPreviewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="W0k-XQ-bSy"/>
+                        <viewControllerLayoutGuide type="bottom" id="Job-vG-2ml"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dWf-je-Afe">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Auz-5n-eAf">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="427"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0SN-D0-ven">
+                                <rect key="frame" x="132" y="454" width="57" height="30"/>
+                                <state key="normal" title="导出">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="exportToLibrary:" destination="lti-c3-d9m" eventType="touchUpInside" id="MkQ-Ut-ejp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="预览" id="GDZ-ui-lUn"/>
+                    <connections>
+                        <outlet property="previewImageView" destination="Auz-5n-eAf" id="FML-Wn-EOV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HYZ-9Q-U2H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="935" y="147"/>
         </scene>
         <!--Thumb Pick View Controller-->
         <scene sceneID="LGn-eb-206">
@@ -222,9 +270,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4">
-            <size key="portraitSize" width="320" height="568"/>
-            <size key="landscapeSize" width="568" height="320"/>
-        </simulatedScreenMetrics>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
 </document>
