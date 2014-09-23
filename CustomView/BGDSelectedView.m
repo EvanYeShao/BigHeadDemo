@@ -18,46 +18,27 @@
     self = [super initWithFrame:frame];
     if (self) {
         if (circle) {
-         // self.layer.cornerRadius = CGRectGetHeight(self.frame)/2;
+          self.layer.cornerRadius = CGRectGetHeight(self.frame)/2;
 
         }
         currentWidth = self.width;
-        
+        self.layer.borderColor = [UIColor whiteColor].CGColor;
+        self.layer.borderWidth = 1.0;
         beginGestureScale = effectiveScale = 1.0;
         
-//        self.layer.masksToBounds = YES;
-//        self.layer.borderColor = [UIColor whiteColor].CGColor;
-//        self.layer.borderWidth = 2;
+        UIPanGestureRecognizer *parentviewPangesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
+        parentviewPangesture.maximumNumberOfTouches = 1;
+        parentviewPangesture.delegate = self;
+        [self addGestureRecognizer:parentviewPangesture];
         
         UIPinchGestureRecognizer *pinGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)];
         pinGesture.delegate = self;
         [self addGestureRecognizer:pinGesture];
         
-        UILongPressGestureRecognizer *panGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
-        [self addGestureRecognizer:panGesture];
-        
-        // Background ImageView
-        
-        bgImageView = [[UIImageView alloc] initWithFrame:self.bounds];
-        bgImageView.image = [UIImage imageNamed:@"circle"];
-        [self addSubview:bgImageView];
-        
-        // 拉升图片坐标
-        CGFloat scaleX = self.width/2+self.width/2*sin(RADIANS_TO_DEGREES(45))-10;
-        CGFloat scaleY = self.width+self.width/2*cos(RADIANS_TO_DEGREES(45));
-        scaleImageView = [[UIImageView alloc] initWithFrame:CGRectMake(scaleX, scaleY, 26, 26)];
-        scaleImageView.image = [UIImage imageNamed:@"sticker_scale"];
-        [self addSubview:scaleImageView];
-        [self bringSubviewToFront:scaleImageView];
-        
-        // 移除图片坐标
-        CGFloat deleteX = self.width/2-self.width/2*sin(RADIANS_TO_DEGREES(45));
-        CGFloat deleteY = self.width-self.width/2*cos(RADIANS_TO_DEGREES(45));
-        deleteImageView = [[UIImageView alloc] initWithFrame:CGRectMake(deleteX, deleteY, 26, 26)];
-        deleteImageView.image = [UIImage imageNamed:@"sticker_delete"];
-        [self addSubview:deleteImageView];
-        [self bringSubviewToFront:deleteImageView];
-        
+        _bgImageView = [[UIImageView alloc] initWithFrame:self.bounds];
+        _bgImageView.backgroundColor = [UIColor clearColor];
+        _bgImageView.contentMode = UIViewContentModeScaleAspectFit;
+        [self addSubview:_bgImageView];
     }
     return self;
 }
@@ -68,11 +49,18 @@
     
 }
 
+- (void)handleTapGesture:(UITapGestureRecognizer *)gesture
+{
+    [self removeFromSuperview];
+}
+
+
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
     //记录上一次拉伸的数值
-    if ( [gestureRecognizer isKindOfClass:[UIPinchGestureRecognizer class]] ) {
     
+    if ( [gestureRecognizer isKindOfClass:[UIPinchGestureRecognizer class]] ) {
+       
         beginGestureScale = effectiveScale;
     }
     return YES;
@@ -101,7 +89,7 @@
     
     [UIView animateWithDuration:0.025 animations:^{
         self.transform = CGAffineTransformMakeScale(effectiveScale, effectiveScale);
-        scaleImageView.transform = CGAffineTransformIdentity;
+        
     }];
     
     if ([self.delegate respondsToSelector:@selector(pinGestureDidScale:ForView:)]&&self.delegate) {
@@ -116,7 +104,7 @@
 
     switch (gesture.state) {
         case UIGestureRecognizerStateBegan:
-            NSLog(@"gesture began");
+            self.bgImageView.image = nil;
             break;
         case UIGestureRecognizerStateChanged:
         {
@@ -134,6 +122,11 @@
     }
 }
 
+// 防止手势冲突
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    return YES;
+    
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

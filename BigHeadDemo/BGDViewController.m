@@ -21,6 +21,7 @@ CGFloat const kBeginWidth = 100.0f;
 {
     UIImage *originalImage;
     UIImage *tempImage;
+    UIImage *bumpImage;
     
     CIContext *_context;
     CGFloat imageScale;
@@ -32,10 +33,9 @@ CGFloat const kBeginWidth = 100.0f;
     BGDSelectedView *circleView;
     BGDSelectedView *rectangleView;
     
-    UIImageView *cropImageView;
-    
     CGRect overstepBoundary;
     CGRect convertRectForCrop;
+    CGRect convertCircleForCrop;
 }
 @property (nonatomic, copy) NSArray *assets;
 @end
@@ -58,12 +58,7 @@ CGFloat const kBeginWidth = 100.0f;
     rectangleView = [[BGDSelectedView alloc] initWithFrame:
                      CGRectMake(_bigHeadImageView.width/2,_bigHeadImageView.height/2, kBeginWidth,kBeginWidth) isCircle:NO];
     rectangleView.delegate = self;
-    
-    
-    cropImageView = [[UIImageView alloc] initWithFrame:rectangleView.bounds];
-    cropImageView.backgroundColor = [UIColor clearColor];
-    cropImageView.contentMode = UIViewContentModeScaleAspectFit;
-    [rectangleView addSubview:cropImageView];
+ 
 }
 
 #pragma mark - Notification Method
@@ -117,7 +112,7 @@ CGFloat const kBeginWidth = 100.0f;
         fixPosition.y = overstepBoundary.origin.y+overstepBoundary.size.height-currentWidth/2;
     }
     view.center = fixPosition;
-    cropImageView.image = nil;
+    rectangleView.bgImageView.image = nil;
     
 }
 
@@ -138,11 +133,13 @@ CGFloat const kBeginWidth = 100.0f;
         convertPoint = CGPointMake(convertPoint.x, self.bigHeadImageView.height-convertPoint.y);
         
         CGPoint imagePoint = [self.bigHeadImageView convertPointFromView:convertPoint];
-       
-       self.bigHeadImageView.image = [self distortionFilterWithImage:tempImage
-                                                          WithVector:imagePoint
-                                                          WithRadius:circleWidth*1.5/imageScale
-                                                          WithScale:(slider.value)*0.7];
+        bumpImage = [self distortionFilterWithImage:tempImage
+                                                           WithVector:imagePoint
+                                                           WithRadius:circleWidth*2/imageScale
+                                                            WithScale:(slider.value)*0.6];
+        
+        self.bigHeadImageView.image = bumpImage;
+      
     }
 }
 
@@ -158,9 +155,9 @@ CGFloat const kBeginWidth = 100.0f;
         convertRectForCrop = [self.bigHeadImageView cropRectForFrame:currentImageRect];
         NSLog(@"x is %f,y is %f,rectanglewidth is %f",convertRectForCrop.origin.x,convertRectForCrop.origin.y,convertRectForCrop.size.width);
         
-        UIImage *convertImage = [originalImage cropImageInRect:convertRectForCrop];
+        UIImage *convertImage = [bumpImage cropImageInRect:convertRectForCrop];
         
-        cropImageView.image = [self oldPhotowithImage:convertImage Amount:0.5 withSize:CGSizeMake(convertRectForCrop.size.width, convertRectForCrop.size.width)];;
+        rectangleView.bgImageView.image = [self oldPhotowithImage:convertImage Amount:0.5 withSize:CGSizeMake(convertRectForCrop.size.width, convertRectForCrop.size.width)];
     }
     
 }
@@ -192,22 +189,6 @@ CGFloat const kBeginWidth = 100.0f;
     [bumpDistortion setValue:[CIVector vectorWithX:vector.x Y:vector.y] forKey:@"inputCenter"];
     [bumpDistortion setValue:[NSNumber numberWithFloat:radius] forKey:@"inputRadius"];
     [bumpDistortion setValue:[NSNumber numberWithFloat:scale] forKey:@"inputScale"];
-    
-//    CIImage *input = [CIImage imageWithCGImage:image.CGImage];
-//    CIFilter *bumpDistortion = [CIFilter filterWithName:@"CIBumpDistortionLinear"];
-//    [bumpDistortion setValue:input forKey:kCIInputImageKey];
-//    [bumpDistortion setValue:[CIVector vectorWithX:vector.x Y:vector.y] forKey:@"inputCenter"];
-//    [bumpDistortion setValue:[NSNumber numberWithFloat:radius] forKey:@"inputRadius"];
-//    [bumpDistortion setValue:[NSNumber numberWithFloat:scale] forKey:@"inputScale"];
-//    [bumpDistortion setValue:[NSNumber numberWithInt:0] forKey:@"inputAngle"];
-//    
-//    CIFilter *bumpDistortion2 = [CIFilter filterWithName:@"CIBumpDistortionLinear"];
-//    [bumpDistortion setValue:bumpDistortion.outputImage forKey:kCIInputImageKey];
-//    [bumpDistortion setValue:[CIVector vectorWithX:vector.x Y:vector.y] forKey:@"inputCenter"];
-//    [bumpDistortion setValue:[NSNumber numberWithFloat:radius] forKey:@"inputRadius"];
-//    [bumpDistortion setValue:[NSNumber numberWithFloat:scale] forKey:@"inputScale"];
-//    [bumpDistortion setValue:[NSNumber numberWithInt:90*M_PI/180] forKey:@"inputAngle"];
-    
     
     return [self imageWithCoreImage:[bumpDistortion outputImage] withSize:originalImage.size];
 }
@@ -271,8 +252,8 @@ CGFloat const kBeginWidth = 100.0f;
 {
     if ([segue.identifier isEqualToString:@"pushToPreview"]) {
         BGDPreviewController *previewController = (BGDPreviewController *)segue.destinationViewController;
-        if (cropImageView.image) {
-            previewController.previewImage = [self.bigHeadImageView.image addImage:cropImageView.image inRect:convertRectForCrop];
+        if (rectangleView.bgImageView.image) {
+            previewController.previewImage = [self.bigHeadImageView.image addImage:rectangleView.bgImageView.image inRect:convertRectForCrop];
         }else
         {
             previewController.previewImage =self.bigHeadImageView.image;

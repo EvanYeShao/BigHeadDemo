@@ -12,6 +12,7 @@
 @interface BGDThumbPickViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 {
     UIImage *selectedImage;
+    NSIndexPath *selectedIndex;
 }
 @end
 
@@ -98,11 +99,22 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ALAsset *asset = self.assets[indexPath.row];
+    
     selectedImage = [UIImage imageWithCGImage:asset.defaultRepresentation.fullResolutionImage];
     
     BGDThumbCell *cell = (BGDThumbCell *)[collectionView cellForItemAtIndexPath:indexPath];
-   
-    cell.maskImageView.image = [UIImage imageNamed:@"c360_cloud_small_image_selected"];
+    
+    if ([indexPath compare:selectedIndex] == NSOrderedSame) {
+        cell.maskImageView.image = nil;
+        selectedImage = nil;
+        selectedIndex = nil;
+    }else
+    {
+        cell.maskImageView.image = [UIImage imageNamed:@"c360_cloud_small_image_selected"];
+        selectedIndex = indexPath;
+    }
+    
+    
    
 }
 

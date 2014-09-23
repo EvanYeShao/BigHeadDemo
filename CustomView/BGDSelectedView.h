@@ -23,12 +23,15 @@
     CGFloat effectiveScale;
     
     CGFloat currentWidth;
+    CGFloat beginDistance;
+    CGFloat beginRatio;
+    CGPoint beginCenter;
     
-    UIImageView *bgImageView;
-    UIImageView *deleteImageView;
-    UIImageView *scaleImageView;
+    
+    
 }
 
+@property (nonatomic, strong) UIImageView *bgImageView;
 @property (nonatomic, weak) id<SelectedViewDelegate> delegate;
 
 - (instancetype)initWithFrame:(CGRect)frame isCircle:(BOOL)circle;
