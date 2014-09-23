@@ -37,7 +37,7 @@
                                 </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2DF-bc-LiU">
-                                <rect key="frame" x="270" y="448" width="38" height="43"/>
+                                <rect key="frame" x="266" y="447" width="38" height="43"/>
                                 <state key="normal" title="预览">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -63,6 +63,7 @@
                     <connections>
                         <outlet property="addFrameButton" destination="kh9-bI-dsS" id="VvK-dm-ogx"/>
                         <outlet property="bigHeadImageView" destination="srd-bG-z6r" id="pia-r4-3yt"/>
+                        <outlet property="filterBarButton" destination="27Q-Ls-o7j" id="ppe-ny-3ld"/>
                         <outlet property="filterSlide" destination="fKO-qQ-oOC" id="c3S-Ct-gFh"/>
                         <segue destination="LVR-C7-gpt" kind="modal" identifier="modalToGroup" id="FgX-Hx-QKv"/>
                         <segue destination="lti-c3-d9m" kind="push" identifier="pushToPreview" id="vS6-2P-RMu"/>

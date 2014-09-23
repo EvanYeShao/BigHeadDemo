@@ -12,6 +12,7 @@
 		40B7316F19CE55B3000E6ED9 /* BGDThumbCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B7316C19CE55B3000E6ED9 /* BGDThumbCell.m */; };
 		40B7317719CE569C000E6ED9 /* UIImageView+GeometryConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B7317619CE569C000E6ED9 /* UIImageView+GeometryConversion.m */; };
 		40B7317A19CE5EE7000E6ED9 /* UIView+Positioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B7317919CE5EE7000E6ED9 /* UIView+Positioning.m */; };
+		90DBB74A927042A2A0FB0E61 /* libPods-BigHeadDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C5BCB683474EC98CA8D44E /* libPods-BigHeadDemo.a */; };
 		922A2ECA19CBCE720084A82B /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 922A2EC819CBCE720084A82B /* plus.png */; };
 		922A2ECB19CBCE720084A82B /* plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 922A2EC919CBCE720084A82B /* plus@2x.png */; };
 		922A2ECD19CBD3F10084A82B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922A2ECC19CBD3F10084A82B /* AVFoundation.framework */; };
@@ -68,6 +69,7 @@
 		40B7317619CE569C000E6ED9 /* UIImageView+GeometryConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+GeometryConversion.m"; sourceTree = "<group>"; };
 		40B7317819CE5EE7000E6ED9 /* UIView+Positioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Positioning.h"; sourceTree = "<group>"; };
 		40B7317919CE5EE7000E6ED9 /* UIView+Positioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Positioning.m"; sourceTree = "<group>"; };
+		45C5BCB683474EC98CA8D44E /* libPods-BigHeadDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BigHeadDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		922A2EC819CBCE720084A82B /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
 		922A2EC919CBCE720084A82B /* plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus@2x.png"; sourceTree = "<group>"; };
 		922A2ECC19CBD3F10084A82B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -114,6 +116,7 @@
 		92F059B419CA80ED004B3B1A /* BigHeadDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BigHeadDemoTests-Info.plist"; sourceTree = "<group>"; };
 		92F059B619CA80ED004B3B1A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		92F059B819CA80ED004B3B1A /* BigHeadDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BigHeadDemoTests.m; sourceTree = "<group>"; };
+		D00245B42BFE47C8B10AADB7 /* Pods-BigHeadDemo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BigHeadDemo.xcconfig"; path = "Pods/Pods-BigHeadDemo.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +130,7 @@
 				92F0599019CA80ED004B3B1A /* CoreGraphics.framework in Frameworks */,
 				92F0599219CA80ED004B3B1A /* UIKit.framework in Frameworks */,
 				92F0598E19CA80ED004B3B1A /* Foundation.framework in Frameworks */,
+				90DBB74A927042A2A0FB0E61 /* libPods-BigHeadDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +229,7 @@
 				92F059B219CA80ED004B3B1A /* BigHeadDemoTests */,
 				92F0598C19CA80ED004B3B1A /* Frameworks */,
 				92F0598B19CA80ED004B3B1A /* Products */,
+				D00245B42BFE47C8B10AADB7 /* Pods-BigHeadDemo.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -247,6 +252,7 @@
 				92F0598F19CA80ED004B3B1A /* CoreGraphics.framework */,
 				92F0599119CA80ED004B3B1A /* UIKit.framework */,
 				92F059AC19CA80ED004B3B1A /* XCTest.framework */,
+				45C5BCB683474EC98CA8D44E /* libPods-BigHeadDemo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -299,9 +305,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 92F059BC19CA80ED004B3B1A /* Build configuration list for PBXNativeTarget "BigHeadDemo" */;
 			buildPhases = (
+				27C53653DDAB42D893520A7F /* Check Pods Manifest.lock */,
 				92F0598619CA80ED004B3B1A /* Sources */,
 				92F0598719CA80ED004B3B1A /* Frameworks */,
 				92F0598819CA80ED004B3B1A /* Resources */,
+				0D73F64735A14AF484CF1339 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -395,6 +403,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0D73F64735A14AF484CF1339 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-BigHeadDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		27C53653DDAB42D893520A7F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		92F0598619CA80ED004B3B1A /* Sources */ = {
@@ -536,6 +577,7 @@
 		};
 		92F059BD19CA80ED004B3B1A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D00245B42BFE47C8B10AADB7 /* Pods-BigHeadDemo.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -544,12 +586,14 @@
 				GCC_PREFIX_HEADER = "BigHeadDemo/BigHeadDemo-Prefix.pch";
 				INFOPLIST_FILE = "BigHeadDemo/BigHeadDemo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		92F059BE19CA80ED004B3B1A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D00245B42BFE47C8B10AADB7 /* Pods-BigHeadDemo.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -558,6 +602,7 @@
 				GCC_PREFIX_HEADER = "BigHeadDemo/BigHeadDemo-Prefix.pch";
 				INFOPLIST_FILE = "BigHeadDemo/BigHeadDemo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

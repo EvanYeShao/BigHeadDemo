@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *bigHeadImageView;
 @property (weak, nonatomic) IBOutlet UISlider *filterSlide;
 @property (strong, nonatomic) IBOutlet UIView *addFrameButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *filterBarButton;
 
 @end

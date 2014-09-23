@@ -14,10 +14,11 @@
 #import "BGDSelectedView.h"
 #import "UIImage+BGDUtility.h"
 #import "BGDPreviewController.h"
+#import "PECropViewController.h"
 
 CGFloat const kBeginWidth = 100.0f;
 
-@interface BGDViewController ()<SelectedViewDelegate>
+@interface BGDViewController ()<SelectedViewDelegate,PECropViewControllerDelegate>
 {
     UIImage *originalImage;
     UIImage *tempImage;
@@ -58,7 +59,54 @@ CGFloat const kBeginWidth = 100.0f;
     rectangleView = [[BGDSelectedView alloc] initWithFrame:
                      CGRectMake(_bigHeadImageView.width/2,_bigHeadImageView.height/2, kBeginWidth,kBeginWidth) isCircle:NO];
     rectangleView.delegate = self;
+    
+    UIBarButtonItem *cropBarButton = [[UIBarButtonItem alloc] initWithTitle:@"裁剪" style:UIBarButtonItemStyleDone target:self action:@selector(openEditor:)];
+    self.navigationItem.rightBarButtonItems = @[cropBarButton,_filterBarButton];
  
+}
+
+#pragma mark Barbutton Action
+- (void)openEditor:(id)sender
+{
+    PECropViewController *controller = [[PECropViewController alloc] init];
+    controller.delegate = self;
+    controller.image = originalImage;
+    
+    UIImage *image = originalImage;
+    CGFloat width = image.size.width;
+    CGFloat height = image.size.height;
+    CGFloat length = MIN(width, height);
+    controller.imageCropRect = CGRectMake((width - length) / 2,
+                                          (height - length) / 2,
+                                          length,
+                                          length);
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        navigationController.modalPresentationStyle = UIModalPresentationFormSheet;
+    }
+    
+    [self presentViewController:navigationController animated:YES completion:NULL];
+}
+
+#pragma mark - PECropViewControllerDelegate methods
+
+- (void)cropViewController:(PECropViewController *)controller didFinishCroppingImage:(UIImage *)croppedImage
+{
+    [controller dismissViewControllerAnimated:YES completion:NULL];
+    self.bigHeadImageView.image = croppedImage;
+    originalImage = croppedImage;
+    tempImage = originalImage;
+    [self refreshBoundry];
+
+}
+
+- (void)cropViewControllerDidCancel:(PECropViewController *)controller
+{
+ 
+    
+    [controller dismissViewControllerAnimated:YES completion:NULL];
 }
 
 #pragma mark - Notification Method
@@ -68,17 +116,25 @@ CGFloat const kBeginWidth = 100.0f;
     originalImage  = (UIImage *)noti.object;
     tempImage = originalImage;
     self.bigHeadImageView.image = originalImage;
+    
+    [self refreshBoundry];
+}
+
+#pragma mark - Refresh Boundary
+
+- (void)refreshBoundry
+{
+    
     imageScale = [self.bigHeadImageView getScaleRatioFromImage];
     
     // 越界边界
     
     CGFloat overX = (self.bigHeadImageView.width  - originalImage.size.width  * imageScale) / 2.0f;
-   
+    
     CGFloat overY = (self.bigHeadImageView.height  - originalImage.size.height  * imageScale) / 2.0f;
     CGFloat overWidth = self.bigHeadImageView.width - overX*2;
     CGFloat overHeight = self.bigHeadImageView.height - overY*2;
     overstepBoundary = CGRectMake(overX, overY, overWidth, overHeight);
-    
 }
 
 #pragma mark - SelectedView delegate
